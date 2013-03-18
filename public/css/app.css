@@ -1,0 +1,50 @@
+/* Minor aesthetics for the sidebar */
+.sidebar-nav {
+  padding: 9px 0;
+}
+/* Account for the navbar */
+#content {
+  padding-top: 60px;
+}
+/* Sets the default/min height for the editor/preview pane */
+#editor-pane, #preview-pane {
+  height: 600px;
+  min-height: 600px;
+}
+/* Style the textarea to look like the Twitter Bootstrap well class */
+#editor-pane textarea {
+  height: 100%;
+  resize: none;
+  padding: 19px;
+}
+#inputName, #inputDescription, #inputContent, #editor {
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#preview-pane {
+  overflow: scroll;
+}
+/* Fixes display of rendered syntax highlighting in preview pane */
+#preview-pane pre {
+  background-color: black;
+}
+#preview-pane pre, #preview-pane code {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+/* Fixes display of rendered ordered lists in preview pane */
+ol.linenums > li {
+  list-style-type: decimal;
+}
+
+.control-group.inline div { 
+    display: inline-block; 
+}

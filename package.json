@@ -1,0 +1,18 @@
+{
+  "name": "angular-markdown-editor",
+  "version": "0.0.1",
+  "author": "Jeremy Whitlock <jcscoobyrs@gmail.com>",
+  "description": "Markdown editor using AngularJS.",
+  "private": true,
+  "scripts": {
+    "start": "coffee server"
+  },
+  "dependencies": {
+    "express": "~3.0",
+    "underscore": "~1.4.0"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.4.0",
+    "docco": "~0.4.0"
+  }
+}

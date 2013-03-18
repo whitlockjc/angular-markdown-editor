@@ -1,0 +1,46 @@
+<div class="row-fluid">
+  <div class="span6" id="editor-pane">
+    <form class="form-horizontal" name="fileEditor">
+      <div class="control-group">
+        <input type="text" class="span12" ng:model="file.name" placeholder="Name" ng:disabled="!hasFile()"
+               required="required" autofocus="autofocus"></input>
+      </div>
+      <div class="control-group">
+        <input type="text" class="span12" ng:model="file.description" placeholder="Description"
+               ng:disabled="!hasFile()"></input>
+      </div>
+      <div class="control-group">
+        <div class="btn-group pull-right">
+          <a class="btn btn-mini" ng:class="{disabled: !hasFile() || !hasChanges()}" ng:click="revertFile()">Revert</a>
+          <a class="btn btn-mini" ng:class="{disabled: !hasFile() || !file.id}" ng:click="deleteFile()">Delete</a>
+          <a class="btn btn-mini" ng:class="{disabled: !hasFile() || !fileEditor.$valid || !hasChanges()}"
+             ng:click="createOrSaveFile()">Save</a>
+        </div>
+        <span class="alert alert-error" id="error-message" ng:class="{hide: !errorMessage}">{{errorMessage}}</span>
+      </div>
+      <div class="control-group">
+        <div id="editor"/>
+      </div>
+    </form>
+  </div>
+  <div class="span6 well" id="preview-pane" ng:bind-html-unsafe="fileContentAsHTML()"></div>
+</div>
+
+<script>
+// TODO: Find a better way to do this
+
+// Resize the textarea and the preview pane to fill the remaining height of the window
+$('#preview-pane').height($(window).height() - 120);
+$('#editor').height($(window).height() - $('#editor').position().top - 20);
+
+// Configure Marked (https://github.com/chjj/marked#options)
+marked.setOptions({
+  gfm: true,
+  pedantic: true,
+  sanitize: true,
+  // Configure syntax highligher support using [Google Code Prettify](https://code.google.com/p/google-code-prettify/)
+  highlight: function(code, lang) {
+    return prettyPrintOne(code, lang, true);
+  }
+});
+</script>
